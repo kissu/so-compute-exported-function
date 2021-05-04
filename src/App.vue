@@ -1,12 +1,27 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div>
+    <div :class="getStatusColour(order.status)">
+      This div do have the correct: `bg-green-100 text-green-900` on it
     </div>
-    <router-view />
   </div>
 </template>
+
+<script>
+import { getStatusColour } from './utils/test'
+
+export default {
+  data() {
+    return {
+      order: {
+        status: 'new',
+      },
+    }
+  },
+  methods: {
+    getStatusColour,
+  },
+}
+</script>
 
 <style lang="scss">
 #app {
